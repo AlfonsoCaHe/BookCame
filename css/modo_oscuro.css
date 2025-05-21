@@ -1,0 +1,747 @@
+:root{
+    --color-tipografia: #eba7ab;
+    --color-fondo: #040c1b;
+    --color-transiciones: #172031;
+    --color-botones: #b91847;
+    --color-texto-botones: black;
+    --color-fondo-header_footer: #141f43;
+    --color-fondo-footer: #2e3542;
+    --color-texto-fondo: #fbf3e478;
+
+    /*Posibles colores para otros elementos*/
+    --header-text-color: #fff;
+    --hover-color: #444; /* Color para hover */
+
+    /*--spacing: 1rem; posible espaciado*/
+    scrollbar-color: var(--color-botones);/*Se supone que cambia el color del scroll*/
+}
+
+@font-face {/*Tipo de letra Montserrat*/
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXo.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+*{
+    color: var(--color-tipografia);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    font-size: 22px;
+    input:focus {
+        background-color: var(--color-fondo);
+    }
+}
+
+h1{
+    font-size: 50px;
+    font-family: 'Bebas Neue';
+    src: src="../fuentes/BebasNeue-Regular.ttf";
+}
+
+button{
+    background-color: var(--color-botones);
+    color: var(--color-texto-botones);
+}
+
+main{
+    padding: 5px;
+    border: 1px solid;
+    border-color: var(--color-tipografia);
+}
+
+/****************************************header*****************************************************/
+
+.header {
+    display: grid;  /*titulo = header__title; buscadores = header__nav*/
+
+    grid-template:  'logo titulo titulo titulo titulo titulo niente' /*Creamos la plantilla que utilizaremos*/
+                    'logo vacio vacio linea linea linea linea'
+                    'logo vacio vacio nada buscadores buscadores buscadores';
+
+    grid-template-columns:  120px 1fr 1fr 50vmax 1fr 1fr 1fr; /*Ajustamos el tamaño de las columnas en función del tamaño máximo de la ventana*/ 
+    grid-template-rows: 60px 1fr 60px; /*Ajustamos el tamaño de las filas*/
+    padding: 5px;
+    border: 1px solid;
+    border-color: var(--color-tipografia);
+
+    /*Fijamos la cabecera para que acompañe la navegación*/
+    position: sticky;
+    top: 0px;
+    background-color: var(--color-fondo-header_footer);
+    z-index: 4;/*Lo mantenemos en la capa superior*/
+    max-height: 120px;
+    max-width: auto;
+
+}
+
+.Logo{
+    grid-area: logo;
+    align-self: center;
+    justify-self: center;
+
+    .iconoLogo{
+        max-height: 120px;
+    }
+}
+
+.header__title{
+    grid-area: titulo;
+    justify-self: center;
+}
+
+.linea { 
+    grid-area: linea;
+}
+
+.header__nav{
+    grid-area: buscadores;
+
+    .header__nav-list{
+        list-style: none;
+    
+        img{
+            width: 40px;
+            &:hover{
+                border: solid 1px;
+            }
+        }
+    
+        /*Posicionar el icono de compra en su lugar*/
+        .compra{
+            width: 100%;
+        }
+        .compra > a{/*El icono se encuentra dentro de la etiqueta de redirección*/
+            justify-self: end;
+        }
+    
+        .busqueda{
+            display: flex;
+            height: 40px;
+            width: 160px;
+            .barraBusqueda{
+                height: 40px;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.header__button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: solid 1px;
+
+    button{
+        background-color: var(--color-fondo-header_footer);
+    }
+    img {
+        width: 40px;
+        height: 40px;
+    }
+
+    &:hover {
+        border: solid 2px;
+    }
+}
+/***************************************************************************************************/
+
+/*********************************body + hero + section*********************************************/
+
+body{
+    background-color: var(--color-fondo);
+}
+
+.hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    position: relative;
+
+    .hero_contenedor {
+        display: flex;
+        width: 90%;
+        max-width: 1200px;
+        align-items: center;
+
+        .imagen_hero {
+            width: 100%;
+            position: relative;
+
+            img {
+                width: 100%;
+                display: block;
+                object-fit: cover;
+                height: auto;
+            }
+        }
+
+        .presentation__description {
+            position: absolute;
+            top: 40%;
+            left: 80%;
+            transform: translateX(-70%);
+            width: 20%;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--color-tipografia);
+            padding: 2px;
+        }
+    }
+}
+
+.transicion{
+    background-color: var(--color-transiciones);
+    border: 1px solid;
+    border-color: var(--color-tipografia);
+    align-items: center;
+    
+    img{
+        padding: 50px;
+        height: 600px;
+    }
+    #impar{
+        display: flex;
+        justify-content: right;
+    }
+    #par{
+        display: flex;
+        justify-content: left;
+    }
+}
+
+section{
+    padding: 5px;
+    border: 1px solid;
+    border-color: var(--color-tipografia);
+}
+
+.libros {
+    overflow-x: auto;
+    white-space: nowrap;
+    h1{
+        position: sticky;
+        left: 0;
+        z-index: 1;/*Permitimos que se oculte tras el header*/
+    }
+
+    .libros__item{
+        display: inline-block;
+        flex-direction: row;
+        
+    }
+
+    img{
+        width: 270px;
+        height: 360px;
+        padding: 5px;
+        border: 1px solid;
+        border-color: var(--color-tipografia);
+        &:hover{
+            border: 3px;
+            background-color: var(--hover-color);
+        }
+    }    
+}
+
+figcaption{
+    display: flex;
+    justify-content: center;
+    font-size: 80%;
+}
+
+/***************************************************************************************************/
+
+/****************************************footer*****************************************************/
+
+footer{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    padding: 20px;
+    border: 1px solid;
+    border-color: var(--color-tipografia);
+    background-color: var(--color-fondo-header_footer);
+    grid-template-columns: 3;
+    grid-template-rows: 2;
+}
+
+.footer__socials{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-items: center;
+    text-align: center;
+}
+
+.footer__socials > .iconos-social{
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 40px;
+        &:hover{
+            border: solid 1px;
+        }
+    }
+}
+
+.footer__contact{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    img{
+        width: 40px;
+    }
+}
+
+.footer__legal{
+    justify-items: center;
+    align-items: center;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    text-align: center;
+}
+.footer__copyright{
+    grid-row: 2;
+    grid-column-start: 2;
+    justify-self: center;
+    text-align: center;
+}
+
+/***************************************************************************************************/
+
+/******************************************elementos @media*****************************************/
+
+@media (max-width: 600px){
+    
+    .header {
+        grid-template:  'logo'
+                        'titulo'
+                        'buscadores';
+    
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 60px 60px;
+        max-width: 100vmax;
+        position: relative;
+        align-items: center;
+        justify-items: center;
+        max-height: 180px;
+    }
+
+    .Logo{
+        .iconoLogo{
+            max-height: 90px;
+        }
+    }
+
+    .header__nav{
+        .header__nav-list{
+            .busqueda{
+                .barraBusqueda{
+                    max-width: 50%;
+                }
+            }
+        }
+    }
+
+    .linea{
+        visibility: hidden;
+    }
+    
+    main{
+        width: 100vmax;
+    }
+
+    .hero > .imagen_hero > img{
+        width: 200px;
+    }
+
+    .transicion{
+        img{
+            padding: 25px;
+            height: 300px;
+        }
+    }
+
+    footer{
+        display: grid;
+        grid-template: 'social' 'contacto' 'legal' 'copyright';
+        justify-content: center;
+        max-width: 100vmax;
+    }
+    
+    .footer__socials{
+        grid-area: social;
+        padding: 10px;
+    }
+    
+    .footer__contact{
+        grid-area: contacto;
+        padding: 10px;
+    }
+    
+    .footer__legal{
+        grid-area: legal;
+        padding: 10px;
+    }
+    .footer__copyright{
+        grid-area: copyright;
+        padding: 10px;
+    }
+}
+
+/**********************************************Elementos fichaLibro.html*************************************/
+
+.fichaLibro{
+    justify-content: center;
+    h1{
+        text-align: center;
+        padding-top: 50px;
+    }
+}
+
+.libro_mostrado{
+    margin: 0 auto;/*Centramos horizontalmente*/
+    justify-self: center;
+    width:80%;
+    border:none;
+}
+
+.ficha{
+    display: grid;
+    grid-template:  'imagen titulo_libro anadir'
+                    'imagen autor vacio'
+                    'imagen editorial vacio'
+                    'imagen formato anyo'
+                    'imagen isbn paginas'
+                    'imagen sinopsis sinopsis'
+                    'imagen precio precio';
+    gap: 20px;
+    grid-template-columns: 1fr 30% auto;
+    /*grid-template-rows: 20px 20px 20px 20px 20px 1fr 20px;*/
+    grid-template-rows: 5% 5% 5% 5% 5% 1fr 5%;
+    width: 70vmax;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.anadir_eliminar {
+    grid-area: anadir;
+    justify-self: end;
+    align-self: start;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    
+    img{
+        width: 50px;
+        height: 50px;
+        &:hover{
+            border: solid 1px;
+        }
+    }
+}
+
+.imagen_ficha{
+    grid-area: imagen;
+}
+
+.titulo_libro{
+    grid-area: titulo_libro;
+}
+
+.autor{
+    grid-area: autor;
+}
+
+.editorial{
+    grid-area: editorial;
+}
+
+.formato{
+    grid-area: formato;
+}
+
+.ISBN{
+    grid-area: isbn;
+}
+
+.anyo{
+    grid-area: anyo;
+}
+
+.paginas{
+    grid-area: paginas;
+}
+
+.sinopsis{
+    grid-area: sinopsis;
+    text-align: justify;
+}
+
+.precio{
+    grid-area: precio;
+    width: 50%;
+    background-color: white;
+    justify-self: center;
+}
+
+/******************************************elementos @media*****************************************/
+
+@media (max-width: 600px){
+    main{
+        max-width: 600px;
+    }
+    .fichaLibro{
+        max-width: 100vmax;
+        h1{
+            text-align: left;
+        }
+    }
+
+    .libro_mostrado{
+        padding:0px;
+        max-width: 100%;
+        justify-content: left;
+        h1{
+            padding-top: 20px;
+        }
+    }
+    
+    .ficha{
+        grid-template:  'imagen titulo_libro'
+                        'imagen autor'
+                        'imagen editorial'
+                        'imagen isbn'
+                        'imagen formato'
+                        'imagen paginas'
+                        'imagen anyo' 
+                        'sinopsis sinopsis'
+                        'precio precio';
+        gap: 10px;
+        grid-template-columns: 1fr 70%;
+        grid-template-rows: 20px 20px 20px 20px 20px 20px 20px 1fr 20px;
+        max-width: 100%;
+        padding: 10px;
+        img{
+            max-height: 192px;
+        }
+    }
+
+    .sinopsis{
+        font-size: smaller;
+        max-width: 100%;
+    }
+    
+    .precio{
+        max-width: 100%;
+        font-size: smaller;
+    }
+}
+
+
+/**********************************************Elementos resultadosBusqueda.html*************************************/
+
+.resultados_busqueda{
+    width:100%;
+    
+    h1{
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    .resultados{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        border:none;
+    }
+}
+
+.ficha_busqueda{
+    display: grid;
+    grid-template:  'imagen titulo_libro precio'
+                    'imagen autor precio'
+                    'imagen editorial vacio'
+                    'imagen sinopsis sinopsis';
+    gap: 10px;
+    grid-template-columns: 1fr 2fr 40%;
+    grid-template-rows: 40px 40px 40px 1fr;
+    width: 45vmax;
+    align-items: center;
+    padding: 10px;
+    justify-self: center;
+
+    a > img {
+        width: 200px;
+    }
+
+    input{
+        font-size: smaller;
+    }
+
+    .titulo_libro{
+        font-size: medium;
+    }
+    
+    .autor{
+        font-size: medium;
+    }
+    
+    .editorial{
+        font-size: medium;
+    }
+
+    .sinopsis{
+        font-size: medium;
+    }
+}
+
+.otras_paginas{
+    width: 100vmax;
+    max-height: 80px;
+    display: inline-flex;
+    justify-content: center;
+}
+  
+.boton_paginas{
+    width: 50px;
+    background-color: var(--color-botones);
+    color: white;
+    border-radius: 25px;
+    padding: 10px;/*Al poner el padding se han vuelto redondos*/
+    margin:10px;
+    &:hover{
+        border: solid 3px black;
+    }
+}
+
+/******************************************elementos @media*****************************************/
+
+@media (max-width: 600px){
+    main{
+        max-width: 600px;
+    }
+    .resultados_busqueda{
+        max-width: 100%;
+        padding: 2px;
+        h1{
+            text-align: left;
+        }
+    }
+    
+    .ficha_busqueda{
+        display: grid;
+        grid-template:  'imagen titulo_libro'
+                        'imagen autor'
+                        'imagen editorial'
+                        'imagen sinopsis'
+                        'imagen precio';
+        grid-template-columns: 1fr 70%;
+        grid-template-rows: 40px 40px 40px 1fr 40px;
+        max-width: 600px;
+        width: 100%;
+        justify-content: left;
+    
+        a > img {
+            width: 150px;
+        }
+    
+        .titulo_libro{
+            font-size: smaller;
+        }
+        
+        .autor{
+            font-size: smaller;
+        }
+        
+        .editorial{
+            font-size: smaller;
+        }
+    
+        .sinopsis{
+            font-size: smaller;
+            max-width: 100%;
+        }
+    }
+
+    .otras_paginas{
+        max-width: 100%;
+    }
+}
+
+
+/************************************elementos informacion.html*************************************/
+
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+}
+
+.seccion {
+    background-color: var(--color-transiciones);
+    border: 1px solid var(--color-tipografia);
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.contenido-seccion {
+    flex: 1;
+    padding: 20px;
+}
+
+.imagen-seccion {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+.descripcion {
+    text-align: center;
+    font-style: oblique;
+    font-size: 1.5rem;
+    color: var(--color-botones);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/******************************************elementos @media*****************************************/
+@media (max-width: 600px) {
+    .seccion {
+        flex-direction: column;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .imagen-seccion {
+        max-width: 100%;
+    }
+
+    .descripcion {
+        font-size: 1.2rem;
+    }
+}

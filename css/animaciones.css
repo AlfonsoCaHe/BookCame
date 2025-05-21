@@ -1,0 +1,241 @@
+.animacion_cabecera {
+    animation: cabecera;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 1s;
+}
+
+@keyframes cabecera {
+    0% {
+        color: var(--color-tipografia);
+    }
+
+    70% {
+        color: var(--color-botones);
+    }
+
+    100% {
+        color: var(--color-botones);
+        top: -20px;
+        text-shadow: 0 1px var(--color-tipografia),
+            0 2px var(--color-tipografia),
+            0 3px var(--color-tipografia),
+            0 4px var(--color-tipografia),
+            0 5px var(--color-tipografia),
+            0 6px var(--color-tipografia),
+            0 7px var(--color-tipografia),
+            0 8px var(--color-tipografia),
+            0 9px var(--color-tipografia),
+            0 50px 25px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.animacion_logo {
+    animation: logo;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    &:hover{
+        animation: cursor_logo;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        /*Mantenemos posición final de 50deg*/
+    }
+
+    &:focus{
+        animation: cursor_logo;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        /*Mantenemos posición final de 50deg*/
+    }
+}
+
+@keyframes logo {
+    0% {
+        width: 0px;
+        height: auto;
+        transform: translateX(0px);
+    }
+
+    50% {
+        width: 120px;
+        height: auto;
+        transform: translateX(10px);
+    }
+
+    100% {
+        width: 120px;
+        height: auto;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes cursor_logo {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    30% {
+        transform: rotate(360deg);
+    }
+
+    60% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(50deg);
+    }
+}
+
+.animacion_barra_movimiento {
+    animation: barra;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes barra {
+    0% {
+        color: var(--color-tipografia);
+        width: 100%;
+    }
+
+    100% {
+        color: var(--color-botones);
+        width: 20%;
+    }
+}
+
+.animacion_pulso {
+    box-shadow: 0px 0px 0px 0px var(--color-botones);
+    animation-name: pulso;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulso {
+    0% {
+        box-shadow: 0px 0px 0px 0px var(--color-botones);
+    }
+
+    100% {
+        box-shadow: 0px 0px 1px 1px var(--color-tipografia);
+    }
+}
+
+.animacion_flecha_girando {
+    animation-name: flecha_girando;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform-origin: center;
+}
+
+@keyframes flecha_girando {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animacion_transicion {
+    transform-origin: center;
+    animation: transicion;
+    animation-duration: 2s;
+    animation-delay: 3s;
+    animation-iteration-count: 4;
+    animation-timing-function: ease-out;
+}
+
+@keyframes transicion {
+    0% {
+        height: auto;
+        transform: translateX(0px);
+    }
+
+    50% {
+        height: auto;
+        transform: translateX(50px);
+    }
+
+    100% {
+        height: auto;
+        transform: translateX(0px);
+    }
+}
+
+.animacion_impar {
+    transform-origin: center;
+    animation: transicionImpar;
+    animation-duration: 2s;
+}
+
+@keyframes transicionImpar {
+    0% {
+        height: auto;
+        transform: translateX(0px);
+    }
+
+    50% {
+        height: auto;
+        transform: translateX(-50px);
+    }
+
+    100% {
+        height: auto;
+        transform: translateX(0px);
+    }
+}
+
+.animacion_par {
+    transform-origin: center;
+    animation: transicionPar;
+    animation-duration: 2s;
+}
+
+@keyframes transicionPar {
+    0% {
+        height: auto;
+        transform: translateX(0px);
+    }
+
+    50% {
+        height: auto;
+        transform: translateX(50px);
+    }
+
+    100% {
+        height: auto;
+        transform: translateX(0px);
+    }
+}
+
+.animacion_seleccion_libro {
+    animation-name: seleccion_libro;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    /*Mantenemos la animación al final*/
+}
+
+@keyframes seleccion_libro {
+    0% {
+        border: 0px solid var(--hover-color);
+    }
+
+    50%{
+        border: 1px solid;
+        width: 250px;
+        background-color: var(--hover-color);
+    }
+
+    100% {
+        border: 3px solid;
+        width: 275px;
+        background-color: var(--hover-color);
+    }
+}

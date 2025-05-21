@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de inicio de BookCame">
+    <title>Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link id="estilo_css" rel="stylesheet" href="./css/estilos_bootstrap.css">
+    <link rel="stylesheet" href="./css/animaciones.css">
+    <script src="./js/main.js" type="module" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header class="container-fluid text-center header">
+        <div class="container-fluid">
+            <div class="row justify-content-around align-items-center">
+                <!-- Primera parte - Logo -->
+                <div class="col-sm-2">
+                    <a href="./LandingPage.html" aria-label="Ir a página de inicio" tabindex="-1"><img id="logo" class="icono_logo animacion_logo"
+                            src="./Iconos Bootstrap/LOGO Book Came SIN FONDO.svg" alt="Logo de BookCame"></a>
+                </div>
+                <!-- Segunda parte - Resto -->
+                <div class="col-sm-8 w-75">
+                    <div class="row g-0 w-100 justify-content-around"><!-- Primera fila - Título y cambio de modo-->
+                        <div class="col-sm-9">
+                            <div class="titulo lh-1">
+                                <h1 class="animacion_cabecera">BookCame</h1>
+                            </div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-2 tamanio_elemento_nav">
+                            <button class="animacion_cambio_modo modo_hover aspecto_modo" id="boton_traduccion" tabindex="-1">
+                                <img src="./img/translate.svg" class="tamanio_icono_nav" style="width:30px" alt="cambiar idioma">
+                            </button>
+                            <div id="menu_traducciones" class="menu oculto">
+                                <p class="idioma">Español</p>
+                                <p class="idioma">English</p>
+                            </div>
+                            <button class="animacion_cambio_modo modo_hover aspecto_modo" id="boton_modo" tabindex="-1">
+                                <img src="./Iconos Bootstrap/cambio_modo.svg" class="tamanio_icono_nav"
+                                    alt="modo oscuro">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row linea"><!-- Segunda fila - hr-->
+                        <div class="lh-1">
+                            <hr class="animacion_barra_movimiento" />
+                        </div>
+                    </div>
+                    <div class="row pb-1 lh-1 justify-content-around" tabindex="-1">
+                        <!-- Tercera fila - barra de navegación-->
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8">
+                            <nav class="navbar navbar-expand-lg bg-body-tertiary" tabindex="-1">
+                                <div class="container-fluid justify-content-center">
+                                    <button class="navbar-toggler mb-2" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon icono_barra_nav">≡</span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-end"
+                                        id="navbarSupportedContent">
+                                        <div class="d-flex justify-content-end">
+                                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                                <li>
+                                                    <form class="d-flex" role="search" tabindex="-1">
+                                                        <input class="form-control me-2" type="search"
+                                                            placeholder="Search" aria-label="Search" tabindex="-1">
+                                                        <a href="./busquedaLibro.html" aria-label="Buscar libro" tabindex="-1"><button
+                                                                class="btn btn-outline-success" type="button"
+                                                                tabindex="-1"><img src="./Iconos Bootstrap/search.svg"
+                                                                    alt="Buscar" tabindex="-1"></button>
+                                                        </a>
+                                                    </form>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <div id="carrito" class="d-flex justify-content-center carritoDesplegable">
+                                                        <a href="#comprar" aria-label="Ir al carrito" class="nav-link boton_hover"
+                                                            style="display: flex;" tabindex="-1">
+                                                            <img src="./Iconos Bootstrap/Carrito.svg"
+                                                                class="tamanio_icono_nav" alt="Carrito">
+                                                        </a>
+                                                        <div class="carritoDesplegado">
+                                                            <ul id="listaCarrito">
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="#usuario" aria-label="Ir a usuarios" class="nav-link boton_hover"
+                                                            style="display: flex;" tabindex="-1">
+                                                            <img src="./Iconos Bootstrap/usuario.svg"
+                                                                class="tamanio_icono_nav" alt="Usuario">
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+        </button> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelar_modal" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="boton_aceptar">Continuar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <section id="boton_subir" class="oculto">
+            <div class="container">
+                <div class="d-flex justify-content-center">↑</div>
+            </div>
+        </section>
+        <div class="d-flex justify-content-center pb-1">
+            <div class="banner">
+                <iframe src="./banner.html" title="Publicidad" width="Ancho_del_banner" height="Alto_del_banner" frameborder="0"
+                    style="z-index:3;display:block;"></iframe>
+            </div>
+        </div>
+        <section class="container-fluid border-primary border p-1 color_borde" id="inicio">
+            <div class="row align-items-center justify-center">
+                <div class="col-sm-8">
+                    <picture>
+                        <img class="img_hero" src="./img/Fotos Hero/Hero.jpg" alt="Foto del autor" loading="lazy">
+                    </picture>
+                </div>
+                <div class="col-sm-4 d-flex flex-wrap justify-content-center">
+                    <p class="d-flex align-items-center justify-center text-center">"Imagina tu historia, compra un libro, donde cada página es un nuevo amigo".
+                    <div class="d-flex justify-center">
+                        <button class="animacion_pulso" id="boton_hero" onclick="saltar()">Contactar</button>
+                        <img class="animacion_flecha_girando" src="./Iconos Bootstrap/arrow-clockwise.svg" alt="Flecha girando">
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="libros container-fluid border-primary border p-1 color_borde" id="librosBestSeller">
+            <h1>BEST SELLERS</h1>
+            <div id="carousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-inline-flex w-100 d-flex justify-content-center">
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/BestSeller 3-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/BestSeller 3-mediante.jpg 480w,
+                        ./img/Fotos/Libros/Grande/BestSeller 3-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/BestSeller 3-mediano.jpg" alt="El Enigma"
+                                            loading="lazy" />
+                                        <figcaption>El enigma</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/BestSeller 4-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/BestSeller 4-mediano.jpg 480w,
+                        ./img/Fotos/Libros/Grande/BestSeller 4-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/BestSeller 4-mediano.jpg"
+                                            alt="El niño que perdió la guerra" loading="lazy" />
+                                        <figcaption>El niño que perdió la guerra</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                    ./img/Fotos/Libros/Pequenio/Libro 2-pequenio.jpg 320w,
+                    ./img/Fotos/Libros/Mediano/Libro 2-mediano.jpg 480w,
+                    ./img/Fotos/Libros/Grande/Libro 2-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                            (max-width: 480px) 440px,
+                            800px" src="./img/Fotos/Libros/Mediano/Libro 2-mediano.jpg"
+                                            alt="La vida contada por un sapiens a un neandertal" loading="lazy" />
+                                        <figcaption>La vida contada por...</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                    ./img/Fotos/Libros/Pequenio/Best-Seller 6-pequenio.jpg 320w,
+                    ./img/Fotos/Libros/Mediano/Best-Seller 6-mediano.jpg 480w,
+                    ./img/Fotos/Libros/Grande/Best-Seller 6-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                            (max-width: 480px) 440px,
+                            800px" src="./img/Fotos/Libros/Mediano/Best-Seller 6-mediano.jpg"
+                                            alt="La paciente silenciosa" loading="lazy" />
+                                        <figcaption>La paciente silenciosa</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/BestSeller 5-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/BestSeller 5-mediano.jpg 480w,
+                        ./img/Fotos/Libros/Grande/BestSeller 5-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/BestSeller 5-mediano.jpg"
+                                            alt="El estrecho sendero entre deseos" loading="lazy" />
+                                        <figcaption>El estrecho sendero ...</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/Libro 1-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/Libro 1-mediano.jpg 480w,
+                        ./img/Fotos/Libros/Grande/Libro 1-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/Libro 1-mediano.jpg"
+                                            alt="Quid Pro Quo - Diccionario Latín-Español" loading="lazy" />
+                                        <figcaption>Quid Pro Quo</figcaption>
+                                    </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <!--No tenemos base de datos, por lo que solo cargamos los que se ven en el primer item-->
+
+                    </div>
+                    <div class="carousel-item">
+
+                    </div>
+                </div>
+                <button class="carousel-control-prev color_carousel" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next color_carousel" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="transicion container-fluid border-primary border p-1 color_borde">
+            <div id="impar" class="justify-content-end vh-100 d-flex">
+                <img class="img_transicion" src="./img/LITERATURA ROMÁNTICA.svg" loading="lazy" alt="Apartado de literatura romántica"/>
+            </div>
+        </section>
+
+        <section class="libros container-fluid border-primary border p-1 color_borde" id="librosRomanticos">
+            <h1>LITERATURA ROMÁNTICA</h1>
+            <div id="carousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-inline-flex w-100 d-flex justify-content-center">
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                                ./img/Fotos/Libros/Pequenio/Romantico 1-pequenio.jpg 320w,
+                                ./img/Fotos/Libros/Mediano/Romantico 1-mediano.jpg 480w,
+                                ./img/Fotos/Libros/Grande/Romantico 1-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                        (max-width: 480px) 440px,
+                                        800px" src="./img/Fotos/Libros/Mediano/Romantico 1-mediano.jpg"
+                                            alt="Corazón en fuera de juego" loading="lazy" />
+                                        <figcaption>Corazón en fuera de juego</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                            ./img/Fotos/Libros/Pequenio/Romántico 2-pequenio.jpg 320w,
+                            ./img/Fotos/Libros/Mediano/Romántico 2-mediano.jpg 480w,
+                            ./img/Fotos/Libros/Grande/Romántico 2-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                    (max-width: 480px) 440px,
+                                    800px" src="./img/Fotos/Libros/Mediano/Romántico 2-mediano.jpg"
+                                            alt="Cuando el cielo se vuelva amarillo" loading="lazy" />
+                                        <figcaption>Cuando el cielo se vuelva...</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                            ./img/Fotos/Libros/Pequenio/Romantico 3-pequenio.jpg 320w,
+                            ./img/Fotos/Libros/Mediano/Romantico 3-mediano.jpg 480w,
+                            ./img/Fotos/Libros/Grande/Romantico 3-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                    (max-width: 480px) 440px,
+                                    800px" src="./img/Fotos/Libros/Mediano/Romantico 3-mediano.jpg"
+                                            alt="La biblioteca de los sueños imposibles" loading="lazy" />
+                                        <figcaption>La biblioteca de los sueños...</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                            ./img/Fotos/Libros/Pequenio/Romantico 4-pequenio.jpg 320w,
+                            ./img/Fotos/Libros/Mediano/Romantico 4-mediano.jpg 480w,
+                            ./img/Fotos/Libros/Grande/Romantico 4-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                    (max-width: 480px) 440px,
+                                    800px" src="./img/Fotos/Libros/Mediano/Romantico 4-mediano.jpg" alt="La maestra"
+                                            loading="lazy" />
+                                        <figcaption>La maestra</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                            ./img/Fotos/Libros/Pequenio/Romantico 5-pequenio.jpg 320w,
+                            ./img/Fotos/Libros/Mediano/Romantico 5-mediano.jpg 480w,
+                            ./img/Fotos/Libros/Grande/Romantico 5-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                    (max-width: 480px) 440px,
+                                    800px" src="./img/Fotos/Libros/Mediano/Romantico 5-mediano.jpg"
+                                            alt="Fabricante de lágrimas" loading="lazy" />
+                                        <figcaption>Fabricante de lágrimas</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                            ./img/Fotos/Libros/Pequenio/Best-Seller 6-pequenio.jpg 320w,
+                            ./img/Fotos/Libros/Mediano/Best-Seller 6-mediano.jpg 480w,
+                            ./img/Fotos/Libros/Grande/Best-Seller 6-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                    (max-width: 480px) 440px,
+                                    800px" src="./img/Fotos/Libros/Mediano/Best-Seller 6-mediano.jpg"
+                                            alt="La paciente silenciosa" loading="lazy" />
+                                        <figcaption>La paciente silenciosa</figcaption>
+                                    </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <!--No tenemos base de datos, por lo que solo cargamos los que se ven en el primer item-->
+
+                    </div>
+                    <div class="carousel-item">
+
+                    </div>
+                </div>
+                <button class="carousel-control-prev color_carousel" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next color_carousel" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="transicion container-fluid border-primary border p-1 color_borde align-content-center">
+            <div id="par" class="justify-content-start vh-100 d-flex ">
+                <img class="img_transicion" src="./img/LITERATURA CIENCIA FICCIÓN.svg" loading="lazy" alt="Apartado de literatura de ciencia ficción"/>
+            </div>
+        </section>
+
+        <section class="libros container-fluid border-primary border p-1 color_borde" id="librosCienciaFiccion">
+            <h1>LITERATURA CIENCIA FICCIÓN</h1>
+            <div id="carousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-inline-flex w-100 d-flex justify-content-center">
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/Ciencia Ficcion 1-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/Ciencia Ficcion 1-mediano.jpg 480w,
+                        ./img/Fotos/Libros/Grande/Ciencia Ficcion 1-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/Ciencia Ficcion 1-mediano.jpg" alt="El Hobbit"
+                                            loading="lazy" />
+                                        <figcaption>El Hobbit</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/Ciencia Ficcion 2-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/Ciencia Ficcion 2-mediano.jpg 480w,
+                        ./img/Fotos/Libros/Grande/Ciencia Ficcion 2-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/Ciencia Ficcion 2-mediano.jpg"
+                                            alt="Blackwater - La Riada" loading="lazy" />
+                                        <figcaption>Blackwater - La Riada</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/Ciencia Ficcion 3-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/Ciencia Ficcion 3-mediano.jpg 480w,
+                        ./img/Fotos/Libros/Grande/Ciencia Ficcion 3-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/Ciencia Ficcion 3-mediano.jpg"
+                                            alt="Magnolia Parks" loading="lazy" />
+                                        <figcaption>Magnolia Parks</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/Ciencia Ficcion 4-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/Ciencia Ficcion 4-mediano.jpg 480w,
+                        ./img/Fotos/Libros/Grande/Ciencia Ficcion 4-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/Ciencia Ficcion 4-mediano.jpg"
+                                            alt="Blackwater II - El dique" loading="lazy" />
+                                        <figcaption>Blackwater II - El dique</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/Ciencia Ficcion 5-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/Ciencia Ficcion 5-mediano.jpg 480w,
+                        ./img/Fotos/Libros/Grande/Ciencia Ficcion 5-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/Ciencia Ficcion 5-mediano.jpg"
+                                            alt="Trilogía Fundación - Isaac Asimov" loading="lazy" />
+                                        <figcaption>Trilogía Fundación</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="p-1"><a href="./fichaLibro.html" aria-label="Ir a ficha del libro">
+                                    <figure>
+                                        <img class="seleccion_libro" srcset="
+                        ./img/Fotos/Libros/Pequenio/Ciencia Ficcion 6-pequenio.jpg 320w,
+                        ./img/Fotos/Libros/Mediano/Ciencia Ficcion 6-mediano.jpg 480w,
+                        ./img/Fotos/Libros/Grande/Ciencia Ficcion 6-grande.jpg 800w" sizes="(max-width: 320px) 280px,
+                                (max-width: 480px) 440px,
+                                800px" src="./img/Fotos/Libros/Mediano/Ciencia Ficcion 6-mediano.jpg"
+                                            alt="Materia Oscura" loading="lazy" />
+                                        <figcaption>Materia Oscura</figcaption>
+                                    </figure>
+                            </div>
+                            <div class="carousel-item">
+                                <!--No tenemos base de datos, por lo que solo cargamos los que se ven en el primer item-->
+
+                            </div>
+                            <div class="carousel-item">
+
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev color_carousel" type="button"
+                            data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next color_carousel" type="button"
+                            data-bs-target="#carouselExample" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="footer__socials">
+                        <div class="iconos-social">
+                            <a href="#facebook" aria-label="Ir a facebook"><img src="./Iconos Bootstrap/facebook.svg" alt="facebook"></a>
+                            <a href="#twitter" aria-label="Ir a twitter-x"><img src="./Iconos Bootstrap/twitter-x.svg" alt="twitter-x"></a>
+                            <a href="#instagram" aria-label="Ir a instagram"><img src="./Iconos Bootstrap/instagram.svg" alt="instagram"></a>
+                        </div>
+                        <div>
+                            <a href="./informacion.html" aria-label="Ir a contactar" style="color:var(--color-tipografia)">Datos de <br />Contacto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="footer__contact">
+                        <p><img src="./Iconos Bootstrap/whatsapp.svg" alt="WhatsApp"></p>
+                        <p>TELÉFONO DE <br /> ATENCIÓN AL CLIENTE</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="footer__legal">
+                        <p class="sin_espacios">INFORMACIÓN LEGAL</p>
+                        <p class="sin_espacios">Política de privacidad</p>
+                        <p class="sin_espacios">Política de cookies</p>
+                        <p class="sin_espacios">Condiciones de venta</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="footer__copyright">
+                    <p class="sin_espacios animacion_transicion">copyright (&copy 2024 BookCame)</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
