@@ -314,6 +314,10 @@ body {
     background-color: var(--color-transiciones);
 }
 
+#pagina_carrito{
+    min-height: 100vh;
+}
+
 /*********************************************FOOTER********************************************************/
 
 .footer{
