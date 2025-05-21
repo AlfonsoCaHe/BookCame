@@ -39,7 +39,7 @@ function init() {
 
     $menu_traducciones = document.getElementById("menu_traducciones");
 
-    if (document.title === "Landing Page"){
+    if (document.title === "Landing Page") {
         cargarObservadores();
         window.addEventListener("scroll", botonSubir);
     }
@@ -142,11 +142,11 @@ function initCarrito() {
 
     if (document.title === "Ficha Libro" || document.title === "Búsqueda Libro") {//Solo si es la ficha del libro o la búsqueda
         $anadir = document.querySelectorAll(".anadir");
-        for(let a of $anadir){
+        for (let a of $anadir) {
             a.addEventListener("click", anadirCarrito);
         }
         $eliminar = document.querySelectorAll(".eliminar");
-        for(let e of $eliminar){
+        for (let e of $eliminar) {
             e.addEventListener("click", reducirCarrito);
         }
     }
@@ -155,10 +155,10 @@ function initCarrito() {
 
     console.log(document.title);
     //Carrito desplegable
-    if(document.title != "Carrito"){
+    if (document.title != "Carrito") {
         document.querySelector(queryDesplegable).addEventListener("mouseenter", mostrarCarrito);
         document.querySelector(queryDesplegable).addEventListener("mouseleave", ocultarCarrito);
-    }else{
+    } else {
         $cuerpoCompra = document.getElementById("carro_compra");
         cargarPaginaCarrito();
     }
@@ -169,7 +169,7 @@ function initCarrito() {
 function mostrarCarrito() {
     let nodo = document.querySelector(queryDesplegado);
     actualizarDesplegable(nodo, carrito.carritoActual);
-    if(nodo.childElementCount < 1){
+    if (nodo.childElementCount < 1) {
         return;
     }
     nodo.style.display = "block";
@@ -185,20 +185,22 @@ function actualizarDesplegable(nodo, carritoActual) {
 
     let desplegados = 0;
     for (let [key, datosProducto] of carritoActual) {
-        if(desplegados < 3){//Para que solo despliegue 3 libros
+        if (desplegados < 3) {//Para que solo despliegue 3 libros
             let nodoProducto = Product.nuevoNodoProductoDesplegable(datosProducto.titulo, datosProducto.precio);
             carritoDespl.appendChild(nodoProducto);
             desplegados++;
         }
     }
-    var botonCarro = document.createElement("div");
-    botonCarro.className = "d-flex justify-content-center align-items-center";
-    var enlace = document.createElement("a");
-    enlace.className = "btn btn-secondary border border-succes p-1 button";
-    enlace.href = "./carrito.html";
-    enlace.textContent = "Ir al carrito";
-    botonCarro.appendChild(enlace);
-    carritoDespl.appendChild(botonCarro);
+    if (desplegados > 0) {
+        var botonCarro = document.createElement("div");
+        botonCarro.className = "d-flex justify-content-center align-items-center";
+        var enlace = document.createElement("a");
+        enlace.className = "btn btn-secondary border border-succes p-1 button";
+        enlace.href = "./carrito.html";
+        enlace.textContent = "Ir al carrito";
+        botonCarro.appendChild(enlace);
+        carritoDespl.appendChild(botonCarro);
+    }
 }
 
 function anadirCarrito() {
@@ -207,15 +209,15 @@ function anadirCarrito() {
     actualizarDesplegable(nodo, carrito.carritoActual);
 }
 
-function reducirCarrito(){
+function reducirCarrito() {
     let nodo = document.querySelector(queryDesplegado);
     let titulo = this.dataset.nombre;
-    
+
     // console.log("reducirCarrito");
     carrito.carritoReducir(titulo);
     actualizarDesplegable(nodo, carrito.carritoActual);
 
-    if(nodo.childElementCount < 1){
+    if (nodo.childElementCount < 1) {
         nodo.innerHTML = "";
     }
 }
@@ -225,7 +227,7 @@ function reducirCarrito(){
 //     document.querySelector(".close").addEventListener("click", () => {modal.hide()});
 //     document.getElementById("exampleModalLabel").textContent = titulo;
 //     document.querySelector(".modal-body").textContent = ("¿Desea realmente eliminar " + titulo + " del carrito?");
-    
+
 //     let cancelar_modal = document.getElementById("cancelar_modal");
 //     let boton_aceptar = document.getElementById("boton_aceptar");
 
@@ -242,21 +244,21 @@ function reducirCarrito(){
 //     })
 // }
 
-function mostrarModalEliminar(titulo, nodo){
-    document.querySelector(".close").addEventListener("click", () => {modal.hide()});
+function mostrarModalEliminar(titulo, nodo) {
+    document.querySelector(".close").addEventListener("click", () => { modal.hide() });
     document.getElementById("exampleModalLabel").textContent = titulo;
     document.querySelector(".modal-body").textContent = ("¿Desea realmente eliminar " + titulo + " del carrito?");
-    
+
     let cancelar_modal = document.getElementById("cancelar_modal");
     let boton_aceptar = document.getElementById("boton_aceptar");
 
     modal.show();
 
-    cancelar_modal.addEventListener("click", () =>{
+    cancelar_modal.addEventListener("click", () => {
         modal.hide();
     })
 
-    boton_aceptar.addEventListener("click", () =>{
+    boton_aceptar.addEventListener("click", () => {
         carrito.carritoEliminar(titulo);
         modal.hide();
         actualizarDesplegable(nodo, carrito.carritoActual);
@@ -269,36 +271,36 @@ function anadirCarritoCallback(titulo, img, precio, nodo) {
     cargarPaginaCarrito();
 }
 
-function reducirCarritoCallback(titulo, nodo){
+function reducirCarritoCallback(titulo, nodo) {
     //console.log(nodo.children[0].children[0].children[1].children[1].children[1].textContent);
-    if(nodo.children[0].children[0].children[1].children[1].children[1].textContent - 1 < 1){
-        mostrarModalEliminarCarrito(titulo,nodo);
-    }else{
+    if (nodo.children[0].children[0].children[1].children[1].children[1].textContent - 1 < 1) {
+        mostrarModalEliminarCarrito(titulo, nodo);
+    } else {
         carrito.carritoReducir(titulo);
         $cuerpoCompra.innerHTML = "";
         cargarPaginaCarrito();
     }
 
-    if(nodo.childElementCount < 1){
+    if (nodo.childElementCount < 1) {
         nodo.innerHTML = "";
     }
 }
 
-function mostrarModalEliminarCarrito(titulo, nodo){
-    document.querySelector(".close").addEventListener("click", () => {modal.hide()});
+function mostrarModalEliminarCarrito(titulo, nodo) {
+    document.querySelector(".close").addEventListener("click", () => { modal.hide() });
     document.getElementById("exampleModalLabel").textContent = titulo;
     document.querySelector(".modal-body").textContent = ("¿Desea realmente eliminar " + titulo + " del carrito?");
-    
+
     let cancelar_modal = document.getElementById("cancelar_modal");
     let boton_aceptar = document.getElementById("boton_aceptar");
 
     modal.show();
 
-    cancelar_modal.addEventListener("click", () =>{
+    cancelar_modal.addEventListener("click", () => {
         modal.hide();
     })
 
-    boton_aceptar.addEventListener("click", () =>{
+    boton_aceptar.addEventListener("click", () => {
         carrito.carritoEliminar(titulo);
         modal.hide();
         $cuerpoCompra.innerHTML = "";
@@ -307,18 +309,18 @@ function mostrarModalEliminarCarrito(titulo, nodo){
 }
 
 //Página del carrito
-function cargarPaginaCarrito(){
+function cargarPaginaCarrito() {
     let localStorageCarrito = carrito.getCart();
-    if(localStorageCarrito.size < 1){
+    if (localStorageCarrito.size < 1) {
         let vacio = document.createElement("div");
         vacio.className = "border-primary border p-1 color_borde";
         vacio.textContent = "No hay elementos que mostrar";
         $cuerpoCompra.appendChild(vacio);
-    }else{
+    } else {
         let importe = 0;
         let importeTotal = document.createElement("div");
         importeTotal.className = "border-primary border p-1 color_borde text-end rounded";
-        for(let [titulo, libro] of localStorageCarrito){
+        for (let [titulo, libro] of localStorageCarrito) {
             let nuevoNodo = Product.nuevoNodoProducto(libro.titulo, libro.img, libro.cantidad, libro.precio, carrito, anadirCarritoCallback, reducirCarritoCallback, mostrarModalEliminarCarrito);
             $cuerpoCompra.appendChild(nuevoNodo);
             importe += libro.cantidad * libro.precio;
