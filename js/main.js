@@ -319,7 +319,7 @@ function cargarPaginaCarrito(){
         let importeTotal = document.createElement("div");
         importeTotal.className = "border-primary border p-1 color_borde text-end rounded";
         for(let [titulo, libro] of localStorageCarrito){
-            let nuevoNodo = Product.nuevoNodoProducto(libro.titulo, libro.img, libro.cantidad, libro.precio, carrito, anadirCarritoCallback, reducirCarritoCallback, mostrarModalEliminar);
+            let nuevoNodo = Product.nuevoNodoProducto(libro.titulo, libro.img, libro.cantidad, libro.precio, carrito, anadirCarritoCallback, reducirCarritoCallback, mostrarModalEliminarCarrito);
             $cuerpoCompra.appendChild(nuevoNodo);
             importe += libro.cantidad * libro.precio;
         }
